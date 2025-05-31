@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dron Aleatorio en Zona Limitada</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Zona de vuelo del dron */
+        #zona-vuelo {
+            position: fixed; /* O usa 'absolute' si quieres que esté dentro del flujo */
+            top: 20px;
+            right: 20px;
+            width: 1300px;
+            height: 100px;
+            border: 2px dashed #ccc; /* Solo para visualizar el área */
+            overflow: hidden;
+            background-color: #e0e0ff;
+        }
+
+        svg {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            transition: top 2s ease-in-out, left 2s ease-in-out;
+        }
+    </style></head>
+<body>
+    <div id="zona-vuelo">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35">
+        <g class="drone">
+            <path fill="#3f3d56" d="M14.199 11.026h4.441v.167a2 2 0 0 1-2 2h-.447a2 2 0 0 1-2-2v-.167Z"></path>
+            <path fill="#3f3d56" d="m28.421 8.586-7.662-1.633-.04-.446q-.002-.05-.013-.1l3.624-1.6a.71.71 0 0 1 1.008-.3s1.231.187.97-1.008-1.94-.336-1.94-.336l-4.4 1.371-.719-1.709a1.42 1.42 0 0 0-1.307-.868h-2.561a1.42 1.42 0 0 0-1.282.811l-.844 1.779L8.81 3.162s-1.679-.858-1.941.336.97 1.008.97 1.008a.71.71 0 0 1 1.008.3l3.546 1.562-.069.146a1.4 1.4 0 0 0-.13.48L4.752 8.586a1.017 1.017 0 0 0-.724 1.394l.175.411a1.01 1.01 0 0 0 1.526.43.76.76 0 0 0 .314-.634l6.231-1.451a3.72 3.72 0 0 0 3.624 2.887h1.212A3.72 3.72 0 0 0 20.742 8.7l6.384 1.486a.75.75 0 0 0 .315.634 1.01 1.01 0 0 0 1.526-.43l.175-.411a1.017 1.017 0 0 0-.724-1.394Z"></path>
+            <path fill="#6c63ff" d="M24.852 1.877 21.083 0s-.39.017-.214.214 4.244 2.1 4.244 2.1zM25.86 2.65a2.1 2.1 0 0 0 .821 1.119 35 35 0 0 0 4.179 1.418l.523-.336-3.919-2.162-1.306-.149-.3.112ZM28.353 8.94a2.1 2.1 0 0 0 1.385-.094 35 35 0 0 0 3.436-2.769v-.621l-3.926 2.149-.83 1.023z"></path>
+            <path fill="#6c63ff" d="M28.698 9.028a2.1 2.1 0 0 0-1.339-.366 35 35 0 0 0-4.154 1.489l-.2.588 4.414-.742 1.116-.7.164-.273ZM8.322 1.877 12.091 0s.39.017.214.214-4.244 2.1-4.244 2.1zM7.312 2.65a2.1 2.1 0 0 1-.821 1.119 35 35 0 0 1-4.179 1.42l-.522-.336 3.922-2.164 1.306-.149.3.112ZM4.821 8.94a2.1 2.1 0 0 1-1.385-.094A35 35 0 0 1 0 6.077v-.621l3.927 2.149.829 1.023z"></path>
+            <path fill="#6c63ff" d="M4.476 9.028a2.1 2.1 0 0 1 1.339-.366 35 35 0 0 1 4.155 1.489l.2.588-4.414-.742-1.116-.7-.164-.273Z"></path>
+            <circle cx="1.045" cy="1.045" r="1.045" fill="#3f3d56" transform="translate(24.348 1.772)"></circle>
+            <circle cx="1.045" cy="1.045" r="1.045" fill="#3f3d56" transform="translate(6.605 1.866)"></circle>
+        </g>
+    </svg>
+
+    </div>
+
+
+    <script>
+        const svgElement = document.querySelector('svg');
+        const zonaVuelo = document.getElementById('zona-vuelo');
+
+        function moveDroneRandomly() {
+            const droneRect = svgElement.getBoundingClientRect();
+            const droneWidth = droneRect.width;
+            const droneHeight = droneRect.height;
+
+            const maxX = zonaVuelo.clientWidth - droneWidth;
+            const maxY = zonaVuelo.clientHeight - droneHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            svgElement.style.left = `${randomX}px`;
+            svgElement.style.top = `${randomY}px`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            moveDroneRandomly();
+            setInterval(moveDroneRandomly, 3000);
+        });
+    </script>
+</body>
+</html>
