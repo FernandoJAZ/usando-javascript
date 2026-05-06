@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Lab | Fernando JAZ</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f1f5f9;
+            --accent: #38bdf8;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 { font-size: 2rem; color: var(--accent); margin-bottom: 5px; }
+        .back-link { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { color: var(--accent); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            background: #243347;
+        }
+
+        .card h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: #0ea5e9;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="https://fernandojaz.github.io/" class="back-link">← Volver al Portafolio</a>
+        <h1>Laboratorio de JavaScript</h1>
+        <p style="color: var(--text-dim)">Experimentos visuales y lógica de programación</p>
+    </header>
+
+    <main class="grid">
+        <!-- Ejercicio 1 -->
+        <a href="dibujando_rellenando_trazos_1.html" class="card">
+            <h2><span class="tag">Canvas</span> Trazos y Rellenos I</h2>
+            <p>Primeros pasos con la API de Canvas: dibujando formas básicas y colores.</p>
+        </a>
+
+        <!-- Ejercicio 2 -->
+        <a href="dibujando_rellenando_trazos_2.html" class="card">
+            <h2><span class="tag">Canvas</span> Trazos y Rellenos II</h2>
+            <p>Evolución de trazados complejos y gestión de estilos avanzados.</p>
+        </a>
+
+        <!-- Ejercicio 3 -->
+        <a href="dron_solitario.html" class="card">
+            <h2><span class="tag">Lógica</span> Dron Solitario</h2>
+            <p>Simulación de movimiento y posicionamiento de un elemento único.</p>
+        </a>
+
+        <!-- Ejercicio 4 -->
+        <a href="la_vaca_que_sube.html" class="card">
+            <h2><span class="tag">Animación</span> La Vaca que Sube</h2>
+            <p>Control de coordenadas y animación de personajes en el eje vertical.</p>
+        </a>
+
+        <!-- Ejercicio 5 -->
+        <a href="marejada_drones.html" class="card">
+            <h2><span class="tag">Arrays</span> Marejada de Drones</h2>
+            <p>Gestión de múltiples elementos simultáneos usando arreglos y bucles.</p>
+        </a>
+    </main>
+
+</body>
+</html>
